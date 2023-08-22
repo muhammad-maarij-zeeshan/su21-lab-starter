@@ -1,7 +1,7 @@
 CC=gcc
 CFLAGS=-Wall -std=c99
 
-all: linked_list bit_ops vector student static_inline
+all: linked_list bit_ops vector student static_inline mem_test
 
 linked_list: linked_list.o test_linked_list.o
 	$(CC) -o linked_list linked_list.o test_linked_list.o
@@ -38,8 +38,11 @@ student:
 static_inline:
 	$(CC) $(CFLAGS) -o static_inline static_inline.c
 
+mem_test:
+	$(CC) $(CFLAGS) -o mem_test mem_test.c
+
 clean:
-	rm linked_list linked_list.o test_linked_list.o bit_ops bit_ops.o test_bit_ops.o vector vector.o test_vector.o student static_inline
+	rm linked_list linked_list.o test_linked_list.o bit_ops bit_ops.o test_bit_ops.o vector vector.o test_vector.o student static_inline mem_test
 
 run_linked_list:
 	./linked_list
@@ -55,3 +58,6 @@ run_student:
 
 run_static_inline:
 	./static_inline
+
+run_mem_test:
+	./mem_test
