@@ -21,4 +21,16 @@ main:
     ecall # Exit
 
 factorial:
-    # YOUR CODE HERE
+    addi t1, x0, 1
+
+    factorial_loop:
+        beqz a0, factorial_done # Base case for when number is zero
+
+        mul t1, t1, a0
+        addi a0, a0, -1
+
+        j factorial_loop
+
+    factorial_done:
+        mv a0, t1
+        ret
