@@ -77,7 +77,11 @@ main:
 # Think: why might having a1 be useful?
 f:
     # YOUR CODE GOES HERE!
-
+    addi t1, x0, 4      # t1 = 4 
+    mul t0, a0, t1      # t0 = a0 * t1    
+    addi t0, t0, 12     # t0 = (a0 * t1) + 12
+    add a1, a1, t0      # a1 = a1 + t0
+    lw a0, 0(a1)        # Load output
     jr ra               # Always remember to jr ra after your function!
 
 print_int:
